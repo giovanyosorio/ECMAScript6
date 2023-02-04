@@ -19,3 +19,20 @@ function sum(num,...values) {
 sum(2,5,7,8) 
 sum(3,"hola","mundo")
 sum(0,1)
+
+
+export function solution(
+
+    JSON1 = {
+        name: "Mr. Michi",
+        food: "Pescado"
+    }, JSON2 = {
+        age: 12,
+        color: "Blanco"
+    }) {
+    return {
+        ...JSON1,
+        ...JSON2
+    }
+    // Tu código aquí 👈
+}
