@@ -4,18 +4,25 @@ function* iterate(array) {
     }
 }
 
-const it=iterate(["hola","mundo","europa","oceania"])
+const it = iterate(["hola", "mundo", "europa", "oceania"])
 
-console.log(it.next().value) ;console.log(it.next().value); console.log(it.next().value);console.log(it.next().value);console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
 
-function* getId(mumbers) {
+function* getId() {
     // Tu código aquí 👈
-    for (let index of mumbers){
-      yield index
+    let Michi = 1
+    while (true) {
+        yield Michi++
     }
-  }
-  
-  const id = getId([1,2,3])
-  id.next().value
-  id.next().value
-  id.next().value
+
+}
+
+
+const id = getId([1, 2, 3])
+id.next().value
+id.next().value
+id.next().value
