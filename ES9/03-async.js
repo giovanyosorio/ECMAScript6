@@ -22,3 +22,22 @@ async function names(array) {
 const name=names(["dsf","asd","dfs"])
 
 console.log("afer");
+
+
+
+
+function solution(numbers) {
+    numbers.forEach(element => {
+        if (element %9==0 ) {
+        console.log("si");
+        }
+        else{
+            console.log("no");
+        }
+     //   console.log(element);
+    });
+}
+
+
+solution([27, 36, 45, 54, 63, 71232])
+solution([27, 36, 45, 54, 42, 72])
