@@ -10,6 +10,10 @@ const promise3=new Promise((resolve,reject)=>{
     resolve("resolve2")
 })
 
-Promise.allSettled([promise1,promise2,promise3])
+//Promise.allSettled([promise1,promise2,promise3])
+//.then(response=> console.log(response) )
 
-.then(response=> console.log(response) )
+Promise.any([promise1,promise2,promise3])
+.then(response=> console.log(response))
+
+//cual ha sucedido primero
