@@ -76,6 +76,17 @@ let lorem = `Esta es una línea de texto
 y esta es otra línea.`;
 console.log(lorem);
 ```
+```js
+// String Substitution
+let name = `Abhinav Sharma`;
+console.log(`Hi, ${name}`); // Output: "Abhinav Sharma"
+
+// Multiline String
+let msg = `Hello \n
+World`;
+console.log(`${msg}`); // Output: "Hello World"
+```
+
 Template literals (Template strings) - JavaScript | MDN
 
 Parámetros por defecto
