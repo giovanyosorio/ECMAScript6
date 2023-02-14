@@ -176,7 +176,7 @@ Object literals
 Permite realizar la asignación de las keys de un objeto sin repetir. Si la key de nuestro objeto, es igual a variable únicamente basta con pasar la variable.
 
 Antes:
-```
+```js
 function createNewUser(user, age, country) { 
 	return { 
 		user: user, 
@@ -419,7 +419,7 @@ const matchedObject = eventDate.exec('2019-04-03');
 console.log(matchedObject[1]); // 2019
 console.log(matchedObject[2]); // 04
 console.log(matchedObject[3]); // 23
-```
+
 Después de esta nueva versión, podemos nombrar grupos usando la sintaxis <groupname>, que almacena dentro de la key groups
 
 const eventDate = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
@@ -428,9 +428,10 @@ const matchedObject = eventDate.exec('2019-04-03');
 console.log(matchedObject.groups.year); // Prints 2019
 console.log(matchedObject.groups.month); // Prints 04
 console.log(matchedObject.groups.day); // Prints 03
+```
 Spread operator
 El spread operator llega para los objetos, permitiendo hacer uso de el.
-
+```js
 const foo = {
   empanadas: 6,
   milanesas: 2,
@@ -447,8 +448,9 @@ console.log(bar); // Prints
 *   yerba: "1 Kg",
 *   water: "1 L",
 **/
+```
 Si tenemos una key con el mismo nombre, el valor será el último agregado. Esto servirá para sustituir valores por default.
-
+```js
 const foo = {
   empanadas: 6,
   milanesas: 2,
@@ -462,27 +464,30 @@ const bar = { ...foo, empanadas: 12  };console.log(bar); // Prints
 *   milanesas: 2,
 *   yerba: "1 Kg",
 **/
+```
 El operador de propagación sirve para crear una copia en un solo nivel de profundidad, esto quiere decir que si existen objetos o arrays dentro de un objeto a copiar. Entonces los sub-elementos en cada nivel, tendrán la misma referencia en la copia y en el original.
-
+```js
 const original = { datos: [1, [2, 3], 4, 5] }
 const copia = { ...original }
 
 original === copia // false
 original["datos"] === copia["datos"] // true
+```
 Promise.finally
 ES9 introduce un nuevo callback que siempre es ejecutado en las promesas. No importando el resultado, si fue resolved o rejected.
-
+```js
 fetch(url)
   .then()
   .catch()
   .finally(() => console.log(`I'm always called!`));
+  ```
 Es útil cuando quieres hacer un borrado o limpieza de operaciones sin importar si el resultado fue éxitoso o no.
 
 Promise.prototype.finally() - JavaScript | MDN
 
 Iteración asíncrona
 En esta nueva versión se incluye la posibilidad de usar ciclos de forma asíncrona, esto permitiendo ejecutar código que no bloque el hilo principal de nuestra aplicación.
-
+```js
 async function arrayOfNames(array) {
     for await (let value of array) {
         console.log(value);
@@ -496,60 +501,66 @@ console.log("After");
 // Alexa
 // Oscar
 // David
+```
 <h1>✨ ¿Qué se implementó en ES10?</h1>
 Flat
 El método flat de los array permite aplanar los elementos internos de un array permitiendo eliminar array internos.
-
+```js
 const numbers = [1, 2, 3, 4, [5, 6, [7, 8, 9]]];
 
 numbers.flat(1) // [ 1, 2, 3, 4, 5, 6, [ 7, 8, 9 ] ]
 numbers.flat(2) // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+```
 Si se quiere aplanar todo el arreglo sin pasar una profundidad exacta, se puede hacer uso de Infinity.
-
+```js
 const numbers = [1, 2, 3, 4, [5, 6, [7, 8, 9]]];
 
 numbers.flat(Infinity) // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+```
 Array.prototype.flat() - JavaScript | MDN
 
 Flat-map
 Permite aplanar los elementos de un array en un nivel, pasando un función que mapeara cada elemento del nuevo array.
-
+```js
 const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 numbers2.flatMap(num => num * 2). // [ 2, 4, 6, 8, 10, 12, 14, 16, 18 ]
+```
 Este método no se podría utilizar para array que tengan más de un nivel de profundidad. Sin embargo, se pueden combinar los métodos flat y map para tener un mismo resultado.
-
+```js
 const numbers = [1, 2, 3, 4, [5, 6, [7, 8, 9]]];
 
 numbers2.flat(Infinity).map(num => num * 2) // [ 2, 4, 6, 8, 10, 12, 14, 16, 18 ]
+```
 Array.prototype.flatMap() - JavaScript | MDN
 
 TrimStart y trimEnd
 Permiten eliminar los espacios en blanco, ya sea de el inicio o del final respectivamente.
-
+```js
 trimStart() → Elimina los espacio al inicio
 trimEnd() → Elimina los espacios al final
 const hello = '        Hello!        ';
 
 console.log(hello.trimStart()); // 'Hello!        ';
 console.log(hello.trimEnd()); // '        Hello!';
+```
 String.prototype.trimStart() - JavaScript | MDN
 
 String.prototype.trimEnd() - JavaScript | MDN
 
 Try catch
 Nos permite realizar el manejo de errores de una forma diferente.
-
+```js
 try {
 	// Lógica
 } catch (error) {
 	// Manejo de errores
 }
 try…catch - JavaScript | MDN
-
+```
 FromEntries
 Permite hacer la transformación de un array a un objeto:
-
+```js
 const entries = [
   ["name", "Zajith"],
   ["age", 27],
@@ -557,6 +568,7 @@ const entries = [
 
 console.log(entries); // [ [ 'name', 'Zajith' ], [ 'age', 27 ] ]
 console.log(Object.fromEntries(entries)); // { name: 'Zajith', age: 27 }
+```
 Object.fromEntries() - JavaScript | MDN
 
 <h1>✨ ¿Qué se implementó en ES11?</h1>
@@ -564,7 +576,7 @@ Optional chaining
 Es una forma de evitar errores solicitando propiedades de forma opcional utilizando el símbolo ? , sirve cuando no estamos seguros de que los valores estén completos.
 
 Este operador es igual que . , excepto que en vez de causar un error si una referencia es nullish(null or undefined), la expresión retorna un valor undefined.
-
+```js
 const users = {
 	zajith : {
 		country: 'MX'
@@ -576,20 +588,21 @@ const users = {
 
 console.log(users?.zajith?.country);
 Optional chaining (?.) - JavaScript | MDN
-
+```
 BigInt
 JavaScript tiene límites numéricos, un máximo Number.MAX_SAFE_INTEGER y un mínimo Number.MIN_SAFE_INTEGER. Fuera de estos límites, los cálculos matemáticos pueden fallar y mostrar resultados erróneos. Con BigInt esto se resuelve.
-
+```js
 const aBigNumber = 8907245920742093847n;
 const anotherBigNumber = BigInt(8907245920742093847);
 
 console.log(aBigNumber); // 8907245920742093847n
 console.log(anotherBigNumber); // 8907245920742093847n
+```
 BigInt - JavaScript | MDN
 
 Nullish coalescing
 Es un operador lógico ?? que retorna el valor que se encuentra del lado derecho, cuando el valor que se encuentra del lado izquierdo es null o undefined.
-
+```js
 const anotherNumber = null;
 const myNumber = 10;
 
@@ -598,13 +611,14 @@ const validate2 = myNumber ?? 1;
 
 console.log(validate); // 5
 console.log(validate2); // 10
+```
 Nullish coalescing operator (??) - JavaScript | MDN
 
 Promise.allSettled
 Este método retorna una promesa después de que todas las promesas dadas fueron completadas resueltas exitosamente o no, con un array de objetos que describe cada una de llamadas.
 
 Este método es típicamente usado cuando se tienen multiples llamadas asíncronas que no son dependientes una de la otra, o te gustaría saber el resultado de cada una.
-
+```js
 const promise1 = Promise.resolve(3);
 const promise2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'foo'));
 const promises = [promise1, promise2];
@@ -615,6 +629,7 @@ Promise.allSettled(promises).
 // expected output:
 // "fulfilled"
 // "rejected"
+```
 Promise.allSettled() - JavaScript | MDN
 
 Global this
@@ -624,7 +639,7 @@ globalThis - JavaScript | MDN
 
 MatchAll
 El método matchAll() nos retorna un iterado con todos los resultados que hacen match de una expresión regular con un string, incluyendo los grupos de captura.
-
+```js
 const regexp = /t(e)(st(\d?))/g;
 const str = 'test1test2';
 
@@ -636,10 +651,10 @@ console.log(array[0]);
 console.log(array[1]);
 // expected output: Array ["test2", "e", "st2", "2"]
 String.prototype.matchAll() - JavaScript | MDN
-
+```
 Dynamic Import
 Es una función que permite la carga de módulo asíncronamente cuando nosotros deseemos que sean cargados.
-
+```js
 // module.js
 export function hello() {
 	console.log('Hello');
@@ -653,27 +668,28 @@ button.addEventListener("click", async function () {
     hello();
 })
 import - JavaScript | MDN
-
+```
 <h1>✨ ¿Qué se implementó en ES12?</h1>
 Numeric-separators
 Nos permite separar los números con _ con la finalidad que la lectura del número sea más fácil y clara.
-
+```js
 const number = 1_000_000_000
 
 console.log(number) // 1000000000
+```
 ReplaceAll
 Retorna un nuevo string con todas las coincidencias de una patrón remplazado por la propiedad replacement
-
+```js
 const string = "JavaScript es un maravilloso lenguaje de  programacion";
 
 const replacedString = string.replace("JavaScript", "TypeScript");
 
 console.log(replacedString); // TypeScript es un maravillo lenguaje de programación.
 String.prototype.replaceAll() - JavaScript | MDN
-
+```
 Promise-any
 Recibe un array de Promises y retorna un único valor de la promesa que se complete exitosamente, sin importar que una de sus predecesoras se complete con error. Si ninguna de las promesas retorna exitosamente un valor, es rechazada con un error AggregateError.
-
+```js
 const promise1 = Promise.reject(0);
 const promise2 = new Promise((resolve) => setTimeout(resolve, 100, 'quick'));
 const promise3 = new Promise((resolve) => setTimeout(resolve, 500, 'slow'));
@@ -684,10 +700,10 @@ Promise.any(promises).then((value) => console.log(value));
 
 // expected output: "quick"
 Promise.any() - JavaScript | MDN
-
+```
 Métodos privados
 Los métodos privados nos permiten tener métodos que no es necesario exponerlos al crear una instancia de nuestra clase. Esto viene a sustituir la convención de _ en los métodos.
-
+```js
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -703,22 +719,22 @@ const zajith = new Person('Zajith', 27);
 
 zajith.getInfo() // TypeError: zajith.getInfo is not a function
 Working with private class features - JavaScript | MDN
-
+```
 <h1>✨ ¿Qué se implementó en ES13?</h1>
 At
 At
 El método at() recibe un valor numérico entero y devuelve el elemento en esa posición, permitiendo valores positivos y negativos. Los valores negativos contarán desde el último elemento del array.
-
+```js
 const array = ["one", "two", "three", "four", "five", "six"];
 
 console.log(array[array.length - 1]);
 console.log(array.at(-1));
 Array.prototype.at() - JavaScript | MDN
-
+```
 Top level await
 El top level await no permite usar las ventajas de async ... await sin tener que envolver nuestra lógica dentro de una función.
 
-
+```jsv
 // utils
 const response = await fetch("https://api.escuelajs.co/api/v1/products");
 const products = await response.json();
@@ -730,3 +746,4 @@ import { products } from "./products.js";
 
 console.log(products);
 console.log("Hey!!");
+```
