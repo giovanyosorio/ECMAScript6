@@ -734,7 +734,7 @@ Array.prototype.at() - JavaScript | MDN
 Top level await
 El top level await no permite usar las ventajas de async ... await sin tener que envolver nuestra lógica dentro de una función.
 
-```jsv
+```js
 // utils
 const response = await fetch("https://api.escuelajs.co/api/v1/products");
 const products = await response.json();
