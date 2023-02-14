@@ -36,10 +36,11 @@ Let permite la reasignación de valores de una variable. Con const el valor no p
 Untitled
 Arrow functions
 Es una alternativa compacta para declarar una function. Su sintaxis es la siguiente:
-
+```
 const miFuncion = (params) => {
 	// code
 }
+```
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 
 Strings
@@ -47,38 +48,42 @@ Con la llegada de ES6 los string recibieron una de las features más importantes
 
 Concatenación
 Antes:
-
+```
 let hello = "Hello"
 let world = "World"
 
 let frase = hello + " " * world;
 
 console.log(frase);
+```
 Después:
-
+```
 let hello = "Hello"
 let world = "World"
 
 let templateLiterals = `${hello} ${word}!`;
 
 console.log(templateLiterals);
+```
 Multilinea
 Antes:
-
+```
 let lorem = "Esto es una linea de texto \n" + "Esta es otra línea";
 console.log(lorem);
+```
 Después:
-
+```
 let lorem = `Esta es una línea de texto
 y esta es otra línea.`;
 console.log(lorem);
+```
 Template literals (Template strings) - JavaScript | MDN
 
 Parámetros por defecto
 Los parámetros por defecto nos ayudan a definir un valor inicial a las variables que son recibidas en la función. Esto permite que se tenga la seguridad que nuestra variable tendrá un valor.
 
 Antes:
-
+```
 function createNewUser(name, age, country) {
 	let name = name || "Zajith";
 	let age = age || 27;
@@ -89,14 +94,16 @@ function createNewUser(name, age, country) {
 
 newUser(); // "Zajith 27 MX".
 newUser("Jesus", 27, "USA"); // "Jesus 27 USA"
+```
 Después:
-
+```
 function createNewUser(name = "Zajith", age = 27, country = "MX") {
 	console.log(name, age, country;
 }
 
 newUser(); // "Zajith 27 MX".
 newUser("Jesus", 27, "USA"); // "Jesus 27 USA"
+```
 Default parameters - JavaScript | MDN
 
 Asignación de desestructuración
