@@ -36,7 +36,8 @@ Let permite la reasignación de valores de una variable. Con const el valor no p
 Untitled
 Arrow functions
 Es una alternativa compacta para declarar una function. Su sintaxis es la siguiente:
-```const miFuncion = (params) => {
+```js
+const miFuncion = (params) => {
 	// code
 }
 ```
@@ -47,7 +48,7 @@ Con la llegada de ES6 los string recibieron una de las features más importantes
 
 Concatenación
 Antes:
-```
+```js
 let hello = "Hello"
 let world = "World"
 
@@ -56,7 +57,7 @@ let frase = hello + " " * world;
 console.log(frase);
 ```
 Después:
-```
+```js
 let hello = "Hello"
 let world = "World"
 
@@ -66,25 +67,15 @@ console.log(templateLiterals);
 ```
 Multilinea
 Antes:
-```
+```js
 let lorem = "Esto es una linea de texto \n" + "Esta es otra línea";
 console.log(lorem);
 ```
 Después:
-```
+```js
 let lorem = `Esta es una línea de texto
 y esta es otra línea.`;
 console.log(lorem);
-```
-```js
-// String Substitution
-let name = `Abhinav Sharma`;
-console.log(`Hi, ${name}`); // Output: "Abhinav Sharma"
-
-// Multiline String
-let msg = `Hello \n
-World`;
-console.log(`${msg}`); // Output: "Hello World"
 ```
 
 Template literals (Template strings) - JavaScript | MDN
@@ -93,7 +84,7 @@ Parámetros por defecto
 Los parámetros por defecto nos ayudan a definir un valor inicial a las variables que son recibidas en la función. Esto permite que se tenga la seguridad que nuestra variable tendrá un valor.
 
 Antes:
-```
+```js
 function createNewUser(name, age, country) {
 	let name = name || "Zajith";
 	let age = age || 27;
@@ -106,7 +97,7 @@ newUser(); // "Zajith 27 MX".
 newUser("Jesus", 27, "USA"); // "Jesus 27 USA"
 ```
 Después:
-```
+```js
 function createNewUser(name = "Zajith", age = 27, country = "MX") {
 	console.log(name, age, country;
 }
@@ -118,7 +109,7 @@ Default parameters - JavaScript | MDN
 
 Asignación de desestructuración
 La desestructuración permite obtener valores de los objetos o arreglos, sin tener que acceder directamente a su propiedad o indice, en caso de los array.
-
+```js
 const person = {
 	name: 'Zajith',
 	age: 27,
@@ -132,8 +123,9 @@ console.log(languages) // ["Spanish", "English"]
 const [primerIdioma, segundoIdioma] = languages;
 console.log(primerIdioma) // Spanish
 console.log(segundoIdioma) // English
+```
 En la desestructuración de los arreglos, si no se quiere acceder a un indice anterior se tiene que respetar el orden y únicamente separar por comas:
-
+```js
 const person = {
 	name: 'Zajith',
 	age: 27,
@@ -143,18 +135,21 @@ const person = {
 const { name, languages } = person;
 const [, segundoIdioma] = languages;
 console.log(segundoIdioma) // English
-Destructuring assignment - JavaScript | MDN
+```
+
+**&#9885; [Destructuring assignment - JavaScript | MDN](https://codesandbox.io/s/js-spread-operator-wy1q0l?file=/src/index.js)**
 
 Spread operator
 El spred operator u operador de propagación, permite expandir un elemento iterable dentro de los parámetros de un función o dentro de otro objeto, esto con la finalidad de evitar la repetición. Tiene el mismo comportamiento en los objetos y arreglos.
-
+```js
 let person = { name: 'Zajith', age: 27 }
 let country = 'MX';
 let data = {...person, country};
 
 console.log(data); // { name: 'Zajith', age: 27, country: 'MX'}
+```
 Así mismo, permite combinar o hacer un copia de un objeto
-
+```js
 let person = { name: 'Zajith', age: 27 }
 let moreData = { country: 'MX' };
 let data = {...person, ...moreData};
@@ -163,11 +158,12 @@ console.log(data); // { name: 'Zajith', age: 27, country: 'MX'}
 
 const person2 = {...person}
 console.log(person2) // { name: 'Zajith', age: 27 }
-Spread syntax (…) - JavaScript | MDN
+```
 
+**&#9885; [Spread syntax (…) - JavaScript | MDN](https://codesandbox.io/s/js-spread-operator-wy1q0l?file=/src/index.js)**
 Rest parametros
 Cuando en una función no tenemos el conocimiento de cuantos parámetros van a ser pasados a la función, se puede hacer el uso de rest parameters. De esta manera, únicamente el valor que es definido explicitamente será asignado, todos los demás serán encapsulados dentro del rest parameters.
-
+```js
 function sum(num, ...values){
 	console.log(values);
 	console.log(num + values[0]);
@@ -175,11 +171,12 @@ function sum(num, ...values){
 }
 
 sum(2,3,4,5);
+```
 Object literals
 Permite realizar la asignación de las keys de un objeto sin repetir. Si la key de nuestro objeto, es igual a variable únicamente basta con pasar la variable.
 
 Antes:
-
+```
 function createNewUser(user, age, country) { 
 	return { 
 		user: user, 
@@ -187,8 +184,9 @@ function createNewUser(user, age, country) {
 		country: country
 	}
 }
+```
 Después:
-
+```js
 function createNewUser(user, age, country) { 
 	return { 
 		user, 
@@ -196,9 +194,10 @@ function createNewUser(user, age, country) {
 		country
 	}
 }
+```
 Promesas
 Las promesas es un código que será ejecutado, pero su resultado puede llegar en el futuro cercano, lejano o nunca. Todo dependerá del servicio. La función que se le pasa al objeto Promise, recibe dos valores resolve y reject. Resolve, es un callback que se ejecutará en caso de que el resultado sea el correcto, en caso de que ocurra un error o se ejecutará el callback reject.
-
+```js
 const myPromise = () => {
     return new Promise((resolve, reject) => {
         if (false) {
@@ -212,11 +211,12 @@ const myPromise = () => {
 myPromise()
 .then(response => console.log(response))
 .catch(err => console.log(err));
+```
 Promise - JavaScript | MDN
 
 Clases
 Las clases nos permiten dividir y encapsular cierto funcionamiento. Las clases están presentes en muchos lenguajes de programación, pero no fue hasta ES6 que javascript las incorporó.
-
+```js
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -237,6 +237,7 @@ class Student extends Person {
 const person = new Person('Zajith', 27);
 
 person.getInfo(); // My name is Zajith. I'm 27 years old
+```
 Classes - JavaScript | MDN
 
 Module
@@ -249,15 +250,16 @@ Existen dos tipos de exportación:
 Nombrada
 Por defecto
 La exportación nombrada nos permite realizar multiples exportaciones dentro de un mismo archivo. Debido a que se hacen multiples export en el mismo archivo, en la importación se tiene que ser muy cuidadoso con los nombres ya que tienen que ser lo mismos.
-
+```js
 // utils.js
 export const sayHello = () => console.log('Hello');
 export const sayBye = () => console.log('Bye!');
 
 // main.js
 import { sayHello, sayBye } from './utils';
+```
 La exportación por defecto, solo nos permite hace una exportación por defecto por archivo.
-
+```js
 // utils.js
 const sayHello = () => console.log('Hello');
 
@@ -265,8 +267,9 @@ export default sayHello;
 
 // main.js
 import sayHello from './utils';
+```
 Se pueden combinar ambas exportaciones
-
+```js
 // utils.js
 const sayHello = () => console.log('Hello');
 const sayBye = () => console.log('Bye!');
@@ -275,10 +278,10 @@ export { sayBye, sayHello as default };
 
 // main.js
 import sayHello, { sayBye } from './utils';
-
+```
 Generator
 Los generadores nos permiten crear una función iterable que recuerda su ejecución y su estado interno para próximas ejecuciones. Con la palabra reservada yield se puede pausar una función generadora y mostrar el valor que le sigue a yield, y así proporcionar una opción ligera para iterar valores.
-
+```js
 function* iterate(array)  {
     for (let value of array) {
         yield value;
@@ -289,10 +292,10 @@ const it = iterate(["Oscar", "Alexa", "David", "Gerlis"]);
 console.log(it.next().value); // Oscar
 console.log(it.next().value); // Alexa
 console.log(it.next().value); // David
-
+```
 Set
 Un Set es una lista desordenada que no permite tener valores repetidos dentro.
-
+```js
 const set = new Set();
 
 set.add('item 1'); // Set ['item 1']
@@ -300,6 +303,7 @@ set.add('item 2').add('item 3'); // Set ['item 1','item 2','item 3']
 set.has('item 2'); // true
 set.delete('item 1'); // Set ['item 2','item 3', 1]                    
 set.size(); // 2
+```
 Tiene los métodos:
 
 Add
