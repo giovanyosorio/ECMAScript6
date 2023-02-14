@@ -315,13 +315,14 @@ Set - JavaScript | MDN
 <h1>✨ ¿Qué se implementó en ES7?</h1>
 Exponentiation operator
 Se introdujo una alternativa a Math.pow para poder realizar operaciones más claras:
-
+```js
 const square = 4 ** 2 // 16
+```
 Exponentiation (**) - JavaScript | MDN
 
 Array includes
 Nos permite determinar si un elemento se encuentra dentro un array.
-
+```js
 let numbers = [1, 3, 4, 6, 7, 8];
 
 console.log(numbers.includes(9)) // false
@@ -330,12 +331,13 @@ console.log(numbers.includes(1)) // true
 const list = ["oscar", "David", "Ana"]
 console.log(list.includes("oscar")) // true
 console.log(list.includes("Pedro")) // false
+```
 Array.prototype.includes() - JavaScript | MDN
 
 <h1>✨ ¿Qué se implementó en ES8?</h1>
 Object entries
 Es un función que no permite transformar un objeto en un array con cada una de las propiedades en un array de la forma [key, value]
-
+```js
 const countries = { MX: "Mexico", CO: "Colombia", CL: "Chile", PE: "Peru"}
 
 console.log(Object.entries(countries));
@@ -345,14 +347,16 @@ console.log(Object.entries(countries));
 	['CL', 'Chile'],
 	['PE', 'Peru']
 ]*/
+```
 Object.entries() - JavaScript | MDN
 
 Object values
 Es una función que nos permite transformar un objeto en un array de los valores de cada una de las propiedades de nuestro objeto
-
+```js
 const countries = { MX: "Mexico", CO: "Colombia", CL: "Chile", PE: "Peru"}
 
 console.log(Object.values(countries)); // ['Mexico', 'Colombia', 'Chile', 'Peu']
+```
 Object.values() - JavaScript | MDN
 
 String padding
@@ -362,15 +366,15 @@ str.padStart(targetLength [, padString])
 targetLength → Es la longitud de la cadena resultante una vez que haya sido rellenada. Si este parámetro es más pequeño que la longitud de la cadena actual, la cadena se mantendrá igual.
 
 padString → Valor opcional. La cadena para rellenar la cadena actual. Si esta cadena es muy larga, será recortada y la parte más a la izquierda será aplicada
-
+```js
 'abc'.padStart(10);         // "       abc"
 'abc'.padStart(10, "foo");  // "foofoofabc"
 'abc'.padStart(6,"123465"); // "123abc"
+```
 String.prototype.padStart() - JavaScript | MDN
-
 Trailing comas
 Es la capacidad de agregar nuevos elementos a un objeto o array. Se puede agregar una nueva propiedad o elemento sin modificar el anterior.
-
+```js
 const arr = [1, 2, 3,,,];
 arr.length; // 5
 
@@ -379,11 +383,12 @@ const object = {
   baz: "qwerty",
   age: 42,
 };
+```
 Trailing commas - JavaScript | MDN
 
 Funciones asíncronas
 Las funciones asíncronas permitieron al lenguaje ejecutar código el cual es necesario obtener el resultado previo. Además, viene a solucionar el callback hell
-
+```js
 const fnAsync = () => {
 	return new Promise( (resolve, reject ) => {
 		(true)
@@ -401,18 +406,20 @@ const anotherFn = async () => {
 console.log("before");
 anotherFn();
 console.log("After");
+```
 async function - JavaScript | MDN
 
 <h1>✨ ¿Qué se implementó en ES9?</h1>
 Expresiones regulares
 En esta versión de ECMA se incorporó la posibilidad de usar grupos nombrados usando una expresión regular. Un match de una expresión regular retorna un objeto. Si un fragmento de la expresión regular esta dentro de los paréntesis, es capturado por el grupo y es almacenado en el grupo en el cual hizo el match.
-
+```js
 const eventDate = /([0-9]{4})-([0-9]{2})-([0-9]{2})/;
 const matchedObject = eventDate.exec('2019-04-03');
 
 console.log(matchedObject[1]); // 2019
 console.log(matchedObject[2]); // 04
 console.log(matchedObject[3]); // 23
+```
 Después de esta nueva versión, podemos nombrar grupos usando la sintaxis <groupname>, que almacena dentro de la key groups
 
 const eventDate = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
@@ -710,7 +717,8 @@ Array.prototype.at() - JavaScript | MDN
 
 Top level await
 El top level await no permite usar las ventajas de async ... await sin tener que envolver nuestra lógica dentro de una función.
-```
+
+
 // utils
 const response = await fetch("https://api.escuelajs.co/api/v1/products");
 const products = await response.json();
@@ -721,4 +729,4 @@ export { products };
 import { products } from "./products.js";
 
 console.log(products);
-console.log("Hey!!");```
+console.log("Hey!!");
