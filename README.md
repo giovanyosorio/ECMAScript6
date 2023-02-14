@@ -36,8 +36,7 @@ Let permite la reasignación de valores de una variable. Con const el valor no p
 Untitled
 Arrow functions
 Es una alternativa compacta para declarar una function. Su sintaxis es la siguiente:
-```
-const miFuncion = (params) => {
+```const miFuncion = (params) => {
 	// code
 }
 ```
